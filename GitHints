@@ -1,0 +1,129 @@
+git version
+--> give version name
+
+git help
+--> show list of commands and way to use them
+git help log == man git-log
+--> show help manual
+
+git config
+--> edit your git settings just for current project
+git config --systems
+--> edit your git settings for system config
+git config --global
+--> edit your git settings for user config
+
+cd ~
+--> go to root file (admin user in windows)
+
+git config --global user.name "Your Name"
+--> edit your name for user git config
+git config --global user.email "youremail@yahoo.com"
+--> edit your password email for your git config settings
+
+git config --global core.editor "Notepad++.exe"
+--> define your main text editor program
+git config --global color.ui true
+--> make your editor program colorful
+
+ls
+--> show directories at root
+ls -la
+--> show all directories include hiddens at root
+
+git config --list
+--> show list of your configurations
+
+git config user.name 
+(or any other set configs without --global or... )
+--> shows selected config value
+
+cat .gitconfig
+--> go inside it and show configs
+--> cat execute files that not directory for example :
+
+cat myText.txt
+--> show what is written in myText.txt file
+
+mkdir
+--> make new directory - u can put file name in front of command like(mkdir Myname) make file name Myname
+
+git init 
+--> make new repository
+
+***********************************************
+To add file [for example text file] to our repository we should :
+0- Put it in our git repository
+1- Go to our repository directory in command line
+2- Add it to staged
+3- Commit it with a message
+
+(Example):
+cd  /c/Users/Mohad/Desktop/My-Git
+git add .
+--> add all the file and folders in current directory to staged or we can use below command :
+
+git add filename.txt
+--> to add just selected file
+
+git commit -m "my message"
+--> done the changes with a message for our commit
+
+git add -A && git commit -m "my message"
+--> commit all changed or newly added to git files
+
+git push origin master
+--> push newly commited files to git your server
+************************************************
+
+
+************************************************
+For Show Commit Logs :
+First go to repository direcory via command line than use one of command below
+
+git log
+--> show all commits
+
+git log -n5
+--> show 5 last commites (you can change number by changing digit after -n in command)
+
+git log --since=2015-05-02
+git log --until=2015-05-02
+--> show commit commands since and until data you select
+
+git log --author="Author Name"
+--> show all commit commands which done by selected Author
+
+git log --grep="your regular experresion"
+--> show all commites that flow your regular exp in their command or commit
+************************************************
+
+{
+	HEAD file in .git in our repository directory show us the pointer 
+	where the last commit done you can access the path in directory by 
+	cat HEAD, and than in the path it show you you can cd the path and 
+	see the SHA-1 of last commit by command cat master (or what else 
+	is that if not master)
+}
+
+************************************************
+
+git status
+--> show what is new in repository (new opereations like ; add, delete, edit,...)
+
+git diff
+--> if an existing file in staged index of repository or repository has been changed (without commit) it shows the changes
+git diff changedfilename
+--> shows the changes of just the file which selected.
+
+git diff --staged
+--> show changes in staged index
+
+git rm filename
+--> remove file to staged index than you should commit it to delete occure.
+
+git mv path/nameOne path/nameTwo
+--> move file name to nameOne to nameTwo, it can rename it or save it in its first name.
+
+
+
