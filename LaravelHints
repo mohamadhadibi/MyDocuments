@@ -1,0 +1,11 @@
+make project:
+1 - in cmd go to directory you want to make your project in
+2 - composer create-project --prefer-dist laravel/laravel your_project_name
+3 - open project in phpStorm, hint npm install shows, click on it and install settings
+4 - go to app/Providers/AppServiceProviders and in boot() functions paste this code : Schema::defaultStringLength(191);
+5 - project is ready to use you can make database in phpMyAdmin and set its configs in .env file
+6 - add project to git
+7 - if in adding project to github get error "repository not found" do this codes:
+	git remote set-url origin YOUR_PROJECT_GITHUB_URL
+	git add -A && git commit -m "my message"
+8 - for install auth settings execute this command : php artisan make:auth
