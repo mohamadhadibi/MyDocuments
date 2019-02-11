@@ -1,0 +1,37 @@
+HOW TO GET GOOGLE MAPS API KEY AND ENJOY IT IN OUR APP :
+
+
+Debug Key :
+
+1 - Open link below;
+https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=F2:FB:27:CE:26:D1:76:4A:94:54:74:82:5F:77:26:19:6E:6D:1C:EC%3B(pakagename_without parantes)
+
+2 - get the key from google
+3 - Go to your Manifist or XML put the new key in it
+4 - Enjoy debuging useing GoogleMaps
+
+
+**********************************************************************************************************************************************************************************************************
+
+
+
+Publish Key :
+
+1 - Right click Project->Export Android Application->Select your Project->Next->Select new Keystore -> Complete all rest Steps (give a default location whereever you want)
+2 - Give a password and alias by default but remmember them.
+3 - If you Complete all process of Filling Details you will get one .apk file and keystore file in your stored location.
+4 - Open commamd prompt type this command in it;
+C:\Program Files (x86)\Java\jre8\bin>keytool.exe -list -alias "your alias name" -keystore "path of your Keystore you saved in step 3" -storepass "your password" -keypass "again your password"
+
+5 - Now hit ENTER you will get new MD5 (New SHA1 Key)
+6 - Copy new SHA1 Key and paste it in link below and open this link and get new API Key from google;
+https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=(NEWSHA1KEY_Whithout parantes)%3B(pakagename_without parantes)
+
+7 - Go to your Manifist or XML put the new google API key in it
+8 - Right Click Project->Export Android Application->Select your Project->Next->Use Existing Keystore -> Give location and password->Next
+9 - Your alias name will comes in your Drop Down->Select it -> Enter Password -> Next 
+10- It will ask for location to store your final .apk file, select default location and store 
+11- This .apk is your final app that could run in all devices enjoy your cook.
+
+
+
