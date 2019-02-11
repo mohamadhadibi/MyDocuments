@@ -1,0 +1,17 @@
+1 -  gem install cocoapods 		(in cmd)
+
+** ERROR {
+	
+	sudo gem install -n /usr/local/bin cocoapods
+}
+
+2 - cd [drag_and_drop_project_file]
+3 - pod init
+4 - open podFile in project file
+5 - cope paste the library codes
+6 - pod install 			(in cmd)
+7 - open the {Project}.xcworkspace instead of the {Project}.xcodeproj
+8 - 
+
+
+HPQZTSUUD2
