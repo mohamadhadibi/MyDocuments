@@ -9,3 +9,7 @@ make project:
 	git remote set-url origin YOUR_PROJECT_GITHUB_URL
 	git add -A && git commit -m "my message"
 8 - for install auth settings execute this command : php artisan make:auth
+
+
+some commands :
+- project laravel version : php artisan --version
