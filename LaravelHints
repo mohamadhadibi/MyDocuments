@@ -9,7 +9,96 @@ make project:
 	git remote set-url origin YOUR_PROJECT_GITHUB_URL
 	git add -A && git commit -m "my message"
 8 - for install auth settings execute this command : php artisan make:auth
+9 - for import ui template to your project do these steps :
+	* copy css html .. dirctories of your template to a directory in your project like dir public/frontEnd
+	* copy what ever of your template pages to your view resource
+	* replace all style links to : <link href="{{asset('public/frontEnd')}}/WHAT_EVER_INSIDE" rel="stylesheet" .../>
+	* replace all js scripts to  : <script src="{{asset('public/frontEnd')}}/WHAT_EVER_INSIDE" .../>
+	* if you copied image files from template than replace all img tags to : <img src="{{asset('public/frontEnd')}}/WHAT_EVER_INSIDE" .../>
+
+10 - for make custom config file : 
+	* make a new php file in config folder of project with name like CustomConfigs
+	* make a array like : 
+		return array(
+    			'MyConfigs' => array(
+        		'temp' => 'valueTemp',
+        		'temp2' => 'valueTemp2',
+    		  ),
+		);
+	* in where to want use this config varaibles first import Config like : use Illuminate\Support\Facades\Config;
+	* if want full array : $myConfigsArray = Config::get('CustomConfigs.MyConfigs', 'default');
+	* if want single variable : $myWantedVariable => Config::get('CustomConfigs.MyConfigs.temp2');
+
+11 - after make new migration copy code like this in the php class made my artisan :
+	public function up() {
+        	Schema::create('YOUR_TABLE_NAME', function (Blueprint $table) {
+            		$table->increments('id');
+            		$table->string('x')->default('');
+            		$table->integer('x')->default(0);
+            		$table->timestamps();
+        	});
+    	}
+    
+    	public function down() {
+        	Schema::dropIfExists('YOUR_TABLE_NAME');
+    	}
+
+12 - to use cookies in laravel :
+	* first know about .env and Config/session.php and also storage/framwork/sessions
+	* and alsow to see Session like : dd($request->session()->get('YOUR_SESSION_NAME'));
+	*
+
+13 - to make storage directory for files :
+	* hint: they save in storate/app/public
+	* this dir not available in browser so with siblink we make it's shourtcut in public folder
+	* the command for make this connection is : php artisan storage:link
+	* in code we make dir and files in path like : 'public/YOUR_DIR_NAME'
+
+14 - to make email sending:
+	* command : php artisan make:mail SendMail
+	* in .env file set EMAIL configs
+	* in app/Mail/SendMail make these changes:
+		public $data;
+    		public function __construct($data) {
+        		$this->data = $data;
+    		}
+
+    		public function build() {
+        		return $this->from('yourmail@mail.com')
+            		->subject('YOUR_EMAIL_TITLE')
+            		->view('dynamic_email_template')
+            		->with('data', $this->data);
+    		}
+
+	* 'dynamic_email_template' is a blade view html with {{ $data['my_wanted_key']}} used inside it.
+	* in controller where want to send email use codes like this:
+		$data = array(
+            		'email' => 'email_want_to_send_message_to@mail.com',
+        	);
+        	Mail::to('your_mail@mail.com')->send(new SendMail($data));
 
 
-some commands :
-- project laravel version : php artisan --version
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
