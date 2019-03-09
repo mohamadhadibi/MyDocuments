@@ -32,16 +32,16 @@
 		$object_name->column2 = $request->input('param_name_2');
 		...
 		$object_name->save();
-		$return new YOUR_RESOURCE_NAME($object_name);
+		return new YOUR_RESOURCE_NAME($object_name);
 	}
  * show:
 	public function show(){
 		$object_name = YOUR_MODEL_NAME::all();
-		$return YOUR_RESOURCE_NAME::collection($object_name);
+		return YOUR_RESOURCE_NAME::collection($object_name);
 	}
 	public function showById($id){
 		$object_name = YOUR_MODEL_NAME::find($id);
-		$return new YOUR_RESOURCE_NAME($object_name);
+		return new YOUR_RESOURCE_NAME($object_name);
 	}
  * update: 
 	public function update(Request $request, $id){
@@ -51,17 +51,39 @@
 		$object_name->column2 = $request->input('param_name_2');
 		...
 		$object_name->save();
-		$return new YOUR_RESOURCE_NAME($object_name);
+		return new YOUR_RESOURCE_NAME($object_name);
 	}
  * delete:
 	public function delete($id){
 		$object_name = YOUR_MODEL_NAME::find($id);
 		$object_name->delete();
-		$return new YOUR_RESOURCE_NAME($object_name);
+		return new YOUR_RESOURCE_NAME($object_name);
 	}
 
+* model content: 
 
+class MODEL_NAME extends Model {
+    protected $table = 'x';
 
+    public function x(){
+        return $this->belongsTo('App\x','x');
+    }
 
+    public function x(){
+        return $this->hasMany('App\x', 'x');
+    }
 
-
+    protected $fillable = [
+        'id',
+        'x',
+        'x',
+        'x',
+        'x',
+        'x',
+        'x',
+        'x',
+        'created_at',
+        'updated_at',
+    ];
+    
+}
