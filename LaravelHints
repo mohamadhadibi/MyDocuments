@@ -45,8 +45,13 @@ make project:
 
 12 - to use cookies in laravel :
 	* first know about .env and Config/session.php and also storage/framwork/sessions
-	* and alsow to see Session like : dd($request->session()->get('YOUR_SESSION_NAME'));
-	*
+	* and also to see Session like : dd($request->session()->get('YOUR_SESSION_NAME'));
+	* make a class for your session object which should have constroctor for overwiting on old one and any other functions may needed
+	* this is the way check your session pack existance :
+		$oldCart = Session::has('YOUR_PACK_NAME') ? Session::get('YOUR_PACK_NAME') : null;
+        	$cart = new Cart($oldCart);
+	* after any change to the pack with functions you made in step 3, you can save them like :
+		Session::put('YOUR_PACK_NAME',$cart);
 
 13 - to make storage directory for files :
 	* hint: they save in storate/app/public
@@ -77,11 +82,43 @@ make project:
         	);
         	Mail::to('your_mail@mail.com')->send(new SendMail($data));
 
+* Release notes:
+15 - change alias localhost to domain :
+	* click on wamp icon and go to : Apache/Alias directories/http://localhist/YOUR_PROJECT_NAME/Delete Alias (if exists)
+	* in opend cmd say yes and your alias will be deleted
+	* again click on wamp go to : Apache/httpd.conf recommended open it with phpStorm)
+	* put code like this at end of the opened file (if they don't exist) :
+		Include "${INSTALL_DIR}/alias/*"
+		NameVirtualHost *:80
+	* for each domain you want copy this code in it :
+		<VirtualHost *:80>
+    			DocumentRoot C:/wamp64/www/YOUR_PROJECT_DIR_NAME/public
+    			ServerName YOUR_DOMAIN_NAME.local
+		</VirtualHost>
+	* go to file : C:\Windows\System32\drivers\etc and open file : hosts
+	* add your server name : 127.0.0.1 YOUR_DOMAIN_NAME.local
+	* flush dns in cmd, by paste code : ipconfig /flushdns
+	* restart wamp services
 
-
-
- 
-
+ 16 - database alias server and localhost :
+	* after makeing database in server go to localhost phpmyAdmin than :
+		- in YOUR_DATABASE_ROOT/operations/ -> rename database name same as server database
+		- in SERVER_ROOT/privillages/ -> make new user same info as server database user
+	* go to .env of the project and set the same database info we made
+17 - user intlijIdea as ftp-manager :
+	* go to : tools/Deployment/Brows Remote Host/ -> a side tab added to ide
+	* click on ... icon (brows) and in Name set : ftp.YOUR_HOST_URL & in Type set : FTP
+	* in new winodws open after click ok ->
+		- in ftp host : YOUR_DOMAIN
+		- in username & password set your ftp user pass
+		- in Root path : select public_html path
+	* in current window swith too tab Mappings ->
+		- in local path : (default is correct) it should be the project folder root
+		- in Deployment path : (default is correct) if it is public_html else set public_html
+	* for auto upload files to server go to tools/Deployment/automatic upload
+	* for uploading files to server ftp -> select files than go to : tools/Deployment/upload to ftp(YOUR_FTP_NAME)
+	* to check status of local files and server files sync click root project go to : tools/Deployemnt/Sync with Deployed ftp(YOUR_FTP_NAME)
+	* another way is use BeyondCopare program
 
 
 
