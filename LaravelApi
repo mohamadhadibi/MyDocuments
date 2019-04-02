@@ -60,30 +60,3 @@
 		return new YOUR_RESOURCE_NAME($object_name);
 	}
 
-* model content: 
-
-class MODEL_NAME extends Model {
-    protected $table = 'x';
-
-    public function x(){
-        return $this->belongsTo('App\x','x');
-    }
-
-    public function x(){
-        return $this->hasMany('App\x', 'x');
-    }
-
-    protected $fillable = [
-        'id',
-        'x',
-        'x',
-        'x',
-        'x',
-        'x',
-        'x',
-        'x',
-        'created_at',
-        'updated_at',
-    ];
-    
-}
