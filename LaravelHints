@@ -151,6 +151,35 @@ make project:
 
 
 
+********************************************************
+some laravel commands :
+
+-laravel version :
+	- project laravel version : php artisan --version
+
+- run server : 
+	php artisan serv
+- run shell commands :
+	php artisan tinker
+
+-make table :
+	php artisan make:migrateion YOUR_TABLE_NAME
+- make model :
+	php artisan make:model MODEL_NAME
+- make controler :
+	php artisan make:controller CONTROLLER_NAME
+- make controller with resources :
+	php artisan make:controller CONTROLLER_NAME --resource
+- make json resouces for table :
+	php artisan make:resource YOUR_RESOURCE_NAME
+
+
+- first database migrate :
+	php artisan make:migration
+- update database :
+	php artisan migrate:update
+
+********************************************************
 
 
 
