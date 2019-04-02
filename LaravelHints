@@ -27,7 +27,7 @@ make project:
 		);
 	* in where to want use this config varaibles first import Config like : use Illuminate\Support\Facades\Config;
 	* if want full array : $myConfigsArray = Config::get('CustomConfigs.MyConfigs', 'default');
-	* if want single variable : $myWantedVariable => Config::get('CustomConfigs.MyConfigs.temp2');
+	* if want single variable : $myWantedVariable = Config::get('CustomConfigs.MyConfigs.temp2');
 
 11 - after make new migration copy code like this in the php class made my artisan :
 	public function up() {
@@ -60,18 +60,18 @@ make project:
 	* in code we make dir and files in path like : 'public/YOUR_DIR_NAME'
 
 14 - to make email sending:
-	* command : php artisan make:mail SendMail
+	* command : php artisan make:mail MAIL_NAME
 	* in .env file set EMAIL configs
-	* in app/Mail/SendMail make these changes:
+	* in app/Mail/MAIL_NAME make these changes:
 		public $data;
     		public function __construct($data) {
         		$this->data = $data;
     		}
 
     		public function build() {
-        		return $this->from('yourmail@mail.com')
+        		return $this->from('sender_mail@mail.com')
             		->subject('YOUR_EMAIL_TITLE')
-            		->view('dynamic_email_template')
+            		->markdown('dynamic_email_template')
             		->with('data', $this->data);
     		}
 
@@ -80,7 +80,7 @@ make project:
 		$data = array(
             		'email' => 'email_want_to_send_message_to@mail.com',
         	);
-        	Mail::to('your_mail@mail.com')->send(new SendMail($data));
+        	Mail::to('receiver_mail@mail.com')->send(new MAIL_NAME($data));
 
 * Release notes:
 15 - change alias localhost to domain :
@@ -118,9 +118,34 @@ make project:
 	* for auto upload files to server go to tools/Deployment/automatic upload
 	* for uploading files to server ftp -> select files than go to : tools/Deployment/upload to ftp(YOUR_FTP_NAME)
 	* to check status of local files and server files sync click root project go to : tools/Deployemnt/Sync with Deployed ftp(YOUR_FTP_NAME)
-	* another way is use BeyondCopare program
+	* another way is use BeyondCompare program
 
+18 - model content after made must be like :
+ class MODEL_NAME extends Model {
+    protected $table = 'x';
 
+    public function x(){
+        return $this->belongsTo('App\x','x');
+    }
+
+    public function x(){
+        return $this->hasMany('App\x', 'x');
+    }
+
+    protected $fillable = [
+        'id',
+        'x',
+        'x',
+        'x',
+        'x',
+        'x',
+        'x',
+        'x',
+        'created_at',
+        'updated_at',
+    ];
+    
+ }
 
 
 
