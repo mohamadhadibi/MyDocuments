@@ -1,1 +1,78 @@
 install :
+- install git
+- download flutter sdk and run flutter_console.bat
+- go to controlPanel/user accounts/change my envirnoment varaibles/ than:
+	- in top entery: click on "Path" edit than :
+	- click new and enter flutter sdk/bin path there and click ok
+	- maybe restart windows needed
+	- check flutter installed by go to cmd type flutter
+
+Create First Project :
+- in cmd go to path you want to create project
+- command : flutter create PROJECT_NAME
+- after opening project in android studio install seggested Configure plugin
+
+Flutter commandline :
+- flutter doctor 	-> show what is missing in flutter
+- flutter run 		-> run app on device
+- r / shift+r		-> reload / full reload in run app
+
+
+Programming :
+- main.dart is the main class and the main() func the main thing run in app (so dont change names)
+- build() method is for draw a view (widget)
+- MaterialApp() is the widget used to wrap entire app
+- Scaffold() is widget to make new screen with ability to add appbar and ...
+- Column() is widget which can contain  children
+- setState() in function inside it write code which should change data and lead to a rerendering of the app
+- to enable debuging ui add codes before runApp():
+	debugPaintSizeEnabled = true;
+	debugPaintBaselinesEnabled = true;
+	debugPaintPointersEnabled = true; 
+  also in MaterialApp you can add this code : debugShowMaterialGrid: true,
+- for null wiedget Container() empty is best practice
+- for onBack callback listener wrap Sacfold with WillPopScope() and it's onWillPop() method, the Navigator.pop(contect); is same as super(onBackPressed)
+- for tabs wrap scafold with DefaultTabController()
+- for makeing event on custom views you can wrap whole view in GestureDetector() and use its gesture events
+- for makeing device ui size you can use :
+	MediaQuery.of(context).orientation
+	MediaQuery.of(context).size.width
+	MediaQuery.of(context).size.height
+- EditText in Flutter is : TextField(), and when use it in Form() changed to TextFormField() and it's onChanged() become onSaved()
+- to close keyboard : FocusScope.of(context).requestFocus(FocusNode());
+
+Image from assets:
+- make folder in root file and put images in it
+- in pubspec.yaml file uncomment #asset and image row and write the image path you want to use
+
+
+Communicate StatefulWidgedt with it's _Class :
+- inside class _Class we have initState() method which execute before build()
+- in this method with propert "widget" we can access all atterbutes of Main StatefullWidget
+	
+Di in flutter :
+- add lib scoped_model: ^1.0.1 in pubspec.yalm file and can import like : import import 'package:scoped_model/scoped_model.dart';
+- make the scope class (repository) for your model you want , which extends form Model class
+- your model list must be private and can be get from outside like this:
+	List<MODEL_NAME> _products = [];
+	List<MODEL_NAME> get products{
+    		return List.from(_products);
+  	}
+- in main.dart or any other root scope widget you want return this widget :
+	return ScopedModel<YOUR_MODEL_SCOPE_CLASS_NAME>(
+      		model: YOUR_MODEL_SCOPE_CLASS(),
+		child: the root widget of page like MaterialApp() or Scafold or...
+	);
+- in widgets where you want to use model_scope functions, return that widget like this and use model.MODEL_SCOPE_FUNCTIONS you want:
+	ScopedModelDescendant<YOUR_MODEL_SCOPE_CLASS_NAME>(builder: (BuildContext context, Widget child, YOUR_MODEL_SCOPE_CLASS_NAME model){
+        	model.YOUR_MODEL_SCOPE_FUNCTION();
+      	},);
+
+
+
+
+
+
+
+
+
