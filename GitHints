@@ -72,6 +72,9 @@ git commit -m "my message"
 git add -A && git commit -m "my message"
 --> commit all changed or newly added to git files
 
+git commit -am "my message"
+--> add and commit newly changes
+
 git push origin master
 --> push newly commited files to git your server
 ************************************************
