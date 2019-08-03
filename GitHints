@@ -128,5 +128,28 @@ git rm filename
 git mv path/nameOne path/nameTwo
 --> move file name to nameOne to nameTwo, it can rename it or save it in its first name.
 
+git checkout -- file_or_folder_name
+--> rollback to last changes
+(-- means stay in current branch)
+
+
+*********branches**************
+
+cat .git/HEAD
+--> show the head pointer of git
+
+git branch
+--> show the list of branches and current branch
+
+git branch branch_name
+--> make new branch
+
+git checkout branch_name
+--> switch to another branch
+
+git checkout -b branch_name
+--> make new branch from current branch and switch to new branch
+
+
 
 
