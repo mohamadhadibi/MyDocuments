@@ -150,6 +150,7 @@ git checkout branch_name
 git checkout -b branch_name
 --> make new branch from current branch and switch to new branch
 
-
+reversion to commit
+git reset --hard your_commit_hash
 
 
