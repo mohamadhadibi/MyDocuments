@@ -1,0 +1,41 @@
+it is :  CI(Continuous Integration) & CD(Continuous Deployment)
+for setup :
+- put keystore.jks in the path of project build.gradle file
+- past code to app build.gradle file in root of android{} :
+	signingConfigs {
+        release {
+            // You need to specify either an absolute path or include the
+            // keystore file in the same directory as the build.gradle file.
+            storeFile file("my-release-key.jks")
+            storePassword "password"
+            keyAlias "my-alias"
+            keyPassword "password"
+        }
+    }
+- paste code in project build.gradle in root of dependencies{} :
+	classpath 'com.github.triplet.gradle:play-publisher:1.1.5'
+- paste code in app build.gradle in top of file bellow other apply tags :
+	apply plugin: 'com.github.triplet.play'
+- make service in google play acoount : Settings>Developer Account Options>API access>Create Service Account>Google API Console>
+	Role: Owner, KeyType: JSON
+	json file build and download it
+	click "Done" in Create Service Account
+	Under the section Service Accounts → Permissions, click Grant access
+	hints {
+		Do NOT edit the Email field.
+		Keep Access expiry date selected on Never
+		Choose Administrator from the Role dropdown
+		Leave all GLOBAL permissions checked
+		Click Add user to close the dialogue
+	}
+	copy service email id and get back to Android Studio
+- in app build.gradle file paste this code in new root of file: 
+	play {
+		track = 'alpha' // set track for playstore  like 'production','beta','alpha'
+		serviceAccountEmail = 'fastlenesa@api-xxxxxxxxxxxxxxx-xxxxxx.iam.gserviceaccount.com' //paste your service account email
+		jsonFile = file('/PlayJson/play-store-key.json') // copy this line as it is do not modify
+	}
+- open gitlab than select the project in settings>CI/CD select
+	in Variables>Input variable value> paste downloaded json content
+	and Input variable key> as PLAY_STORE_JSON  and save
+- .gitlab-ci.yml
