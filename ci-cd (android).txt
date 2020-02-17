@@ -39,3 +39,7 @@ for setup :
 	in Variables>Input variable value> paste downloaded json content
 	and Input variable key> as PLAY_STORE_JSON  and save
 - .gitlab-ci.yml
+
+
+cource medium link :
+https://medium.com/faun/gitlab-ci-cd-configuring-gitlab-ci-yml-file-android-part-4-4d48bc456eb5
