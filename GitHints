@@ -1,6 +1,9 @@
 git version
 --> give version name
 
+git update for winodws 
+--> git update-git-for-windows
+
 git help
 --> show list of commands and way to use them
 git help log == man git-log
@@ -152,6 +155,22 @@ git checkout -b branch_name
 
 reversion to commit
 git reset --hard your_commit_hash
+
+
+**********ssh*************
+ls -la ~/.ssh
+--> get list of current keys
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+--> make a new key
+--> enter path & name after
+
+eval $(ssh-agent -s)
+--> make sure ssh-agent is in execute
+
+ssh-add ~/.ssh/your_rsa_id
+add  new ssh-key to ssh agent
+
 
 https://t.me/joinchat/BBUGdkQQzcapex--F4nmUA
 https://www.youtube.com/watch?v=tTbd1Mfi-Sk
