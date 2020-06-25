@@ -4,7 +4,7 @@ HOW TO GET GOOGLE MAPS API KEY AND ENJOY IT IN OUR APP :
 Debug Key :
 
 1 - Open link below;
-https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=F2:FB:27:CE:26:D1:76:4A:94:54:74:82:5F:77:26:19:6E:6D:1C:EC%3B(pakagename_without parantes)
+https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=1B:75:3D:21:F4:20:B5:02:02:FE:8C:33:48:46:6C:2A:87:D7:C4:C8%3B(pakagename_without parantes)
 
 2 - get the key from google
 3 - Go to your Manifist or XML put the new key in it
