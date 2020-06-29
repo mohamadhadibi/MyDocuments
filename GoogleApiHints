@@ -21,7 +21,7 @@ Publish Key :
 2 - Give a password and alias by default but remmember them.
 3 - If you Complete all process of Filling Details you will get one .apk file and keystore file in your stored location.
 4 - Open commamd prompt type this command in it;
-C:\Program Files (x86)\Java\jre8\bin>keytool.exe -list -alias "your alias name" -keystore "path of your Keystore you saved in step 3" -storepass "your password" -keypass "again your password"
+C:\Program Files\Java\jre1.8.0_212\bin>keytool.exe -list -alias "your alias name" -keystore "path of your Keystore you saved in step 3" -storepass "your password" -keypass "again your password"
 
 5 - Now hit ENTER you will get new MD5 (New SHA1 Key)
 6 - Copy new SHA1 Key and paste it in link below and open this link and get new API Key from google;
