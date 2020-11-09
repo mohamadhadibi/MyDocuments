@@ -171,8 +171,11 @@ eval $(ssh-agent -s)
 ssh-add ~/.ssh/your_rsa_id
 add  new ssh-key to ssh agent
 
+********
+git stash
+git checkout other-branch
+git stash pop
 
-https://t.me/joinchat/BBUGdkQQzcapex--F4nmUA
 https://www.youtube.com/watch?v=tTbd1Mfi-Sk
 
 all days come and go
