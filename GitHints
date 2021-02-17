@@ -80,6 +80,12 @@ git commit -am "my message"
 
 git push origin master
 --> push newly commited files to git your server
+
+git fetch --prune
+-> update remote branches
+
+git branch -D branch_name
+-> delete local branch
 ************************************************
 
 
