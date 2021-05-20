@@ -1,0 +1,23 @@
+
+# COMMAND change file values in specific line =>
+
+* hint: [] should removed too on real command.
+* hint: value before 's' is code line, but if you put just 's' it executes on whole file.
+sed -i '[code line]s/[old value]/[new value]/' [file path]
+sed -i '[code line]s/^/[value]/' [file path]
+
+************************************************************
+
+# COMMAND path hints =>
+
+* hint: './' means root
+* hint: '[just fule name without / or .]' means current folder
+
+************************************************************
+
+# COMMAND copy file =>
+
+cp [from file path] [to file path]
+
+************************************************************
+
